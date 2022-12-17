@@ -8,7 +8,7 @@ class test:
     def sum(self):
         return self.a * self.b
 
-test_class = test(100,-5)
+test_class = test(100,5)
 test_class_2 = test(1100)
 test_class.a = 200
 print(test_class.sum())
