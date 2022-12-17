@@ -1,15 +1,28 @@
 class test:
-    def __init__(self,a: int,b = 0):
+    rate = 0.8
+    all = []
+    def __init__(self,name:str,a: int,b = 0):
         assert a >= 0,f"a {a} must greater than or equal to zero"
         assert b >= 0,f"b {b} must greater than or equal to zero"
+        self.name = name
         self.a = a
         self.b = b
-        print(a,b)
+        self.all.append(self)
+
     def sum(self):
         return self.a * self.b
 
-test_class = test(100,-5)
-test_class_2 = test(1100)
-test_class.a = 200
-print(test_class.sum())
-print(test_class_2.sum())
+    def apply_discount(self):
+        self.a  *= self.rate
+
+    def __repr__(self):
+        return f"test:{self.name}"
+
+test_class = test("earphone",100,5)
+test_class_2 = test("PC",1000,5)
+test_class.rate = 2
+test_class.apply_discount()
+
+for i in test.all:
+    print(i.__repr__())
+    print(i.sum())
